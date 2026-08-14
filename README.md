@@ -23,4 +23,4 @@ Antes de publicar, configure o domínio definitivo na hospedagem e acrescente a 
 
 O `Dockerfile` multi-stage gera os arquivos estáticos com Vite e os publica com Nginx, incluindo fallback de SPA, compressão, cache de assets e health check.
 
-O app `web` do projeto `portfolio-igor` acompanha a branch `main` do GitHub. Cada novo commit nessa branch dispara uma nova implantação no EasyPanel.
+O app `portfolio-igor`, dentro do projeto `apps`, acompanha a branch `main` do GitHub. Cada novo commit nessa branch dispara uma nova implantação no EasyPanel.

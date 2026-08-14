@@ -350,8 +350,24 @@ function App() {
               </ol>
               <div className="publications">
                 <span>Publicações</span>
-                <p>Dominando o CSS: um guia completo para desenvolvedores web</p>
-                <p>JavaScript: fundamentos, técnicas e aplicações práticas</p>
+                <a
+                  href="https://www.amazon.com.br/Domido-CSS-Igor-Cacerez-Albino/dp/6526603459"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="Ver Dominando o CSS na Amazon"
+                >
+                  <span>Dominando o CSS: um guia completo para desenvolvedores web</span>
+                  <ArrowUpRight aria-hidden="true" />
+                </a>
+                <a
+                  href="https://www.amazon.com.br/JavaScript-Fundamentos-T%C3%A9cnicas-Aplica%C3%A7%C3%B5es-Pr%C3%A1ticas-ebook/dp/B0CD2Y8PLQ"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="Ver JavaScript: fundamentos, técnicas e aplicações práticas na Amazon"
+                >
+                  <span>JavaScript: fundamentos, técnicas e aplicações práticas</span>
+                  <ArrowUpRight aria-hidden="true" />
+                </a>
               </div>
             </Reveal>
 

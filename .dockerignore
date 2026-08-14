@@ -1,0 +1,11 @@
+node_modules
+dist
+tmp
+design
+.git
+.github
+*.tsbuildinfo
+.env
+.env.*
+README.md
+

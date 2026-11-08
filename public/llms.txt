@@ -1,0 +1,27 @@
+# Igor Cacerez
+
+> Igor Cacerez é especialista em Inteligência Artificial, desenvolvedor full-stack e professor no SENAI São Paulo (Brasil). Cria produtos com IA e ensina IA aplicada no YouTube, TikTok e Instagram (@igor.cacerez).
+
+## Quem é
+- Especialista em Inteligência Artificial, consultor e professor.
+- Formado pelo Instituto Federal de São Paulo (IFSP).
+- Especializações: Inteligência Artificial e Tecnologias Educacionais; Engenharia de Software; Cibersegurança; Aplicativos Móveis Multiplataforma.
+
+## Criações
+- [Cognisa](https://cognisa.com.br): sistema para restaurantes com mesas, balcão, cozinha e delivery próprio. R$ 49,90/mês, sem taxa por pedido, 15 dias grátis.
+- [Kalorias](https://kalorias.com.br): app gratuito que estima calorias e nutrientes a partir da foto da refeição usando IA. Android e iPhone (PWA).
+
+## Serviços
+- Consultoria em Inteligência Artificial para empresas.
+- Desenvolvimento de agentes de IA, automações e integrações com modelos de linguagem.
+- Aulas, cursos e palestras sobre IA.
+
+## Canais
+- [YouTube](https://www.youtube.com/@igor.cacerez): tutoriais completos de IA.
+- [TikTok](https://www.tiktok.com/@igor.cacerez): dicas rápidas de ferramentas de IA.
+- [Instagram](https://instagram.com/igor.cacerez): bastidores e novidades.
+
+## Contato
+- E-mail: igor.cacerez@gmail.com
+- WhatsApp: +55 18 99649-6255
+- Site: https://igorcacerez.com.br/

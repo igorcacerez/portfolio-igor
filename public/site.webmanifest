@@ -1,11 +1,11 @@
 {
   "name": "Igor Cacerez — Portfólio",
   "short_name": "Igor Cacerez",
-  "description": "Desenvolvimento full-stack, consultoria em IA e educação tecnológica.",
+  "description": "Igor Cacerez — especialista em Inteligência Artificial.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#070909",
-  "theme_color": "#070909",
+  "background_color": "#f3eee4",
+  "theme_color": "#f3eee4",
   "icons": [
     {
       "src": "/favicon.svg",

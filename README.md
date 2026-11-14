@@ -1,6 +1,6 @@
 # Portfólio — Igor Cacerez
 
-Landing page estática (Vite) com cérebro neural 3D em Three.js, SEO técnico, conteúdo semântico e foco em conversão para WhatsApp.
+Landing page estática (Vite) com cena 3D em Three.js (partículas que se formam + vidro físico), SEO técnico, conteúdo semântico e foco em conversão para WhatsApp.
 
 ## Rodar localmente
 

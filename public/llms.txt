@@ -14,7 +14,7 @@
 ## Serviços
 - Consultoria em Inteligência Artificial para empresas.
 - Desenvolvimento de agentes de IA, automações e integrações com modelos de linguagem.
-- Aulas, cursos e palestras sobre IA.
+- Aulas e palestras sobre IA.
 
 ## Canais
 - [YouTube](https://www.youtube.com/@igor.cacerez): tutoriais completos de IA.

@@ -184,7 +184,7 @@ main,header,footer{position:relative;z-index:2}
 .eyebrow{display:inline-flex;align-items:center;gap:10px;color:var(--lime);margin-bottom:26px}
 .eyebrow i{width:7px;height:7px;border-radius:50%;background:var(--lime);box-shadow:0 0 0 4px #c8ff3d2e;animation:bl 2s infinite}
 @keyframes bl{50%{opacity:.35}}
-h1{font-family:var(--d);font-weight:700;font-size:clamp(3rem,8.6vw,8.6rem);line-height:.9;letter-spacing:-.045em;margin:0;max-width:11ch}
+h1{font-family:var(--d);font-weight:800;font-size:clamp(3.2rem,9.6vw,10rem);line-height:.9;letter-spacing:-.045em;margin:0;max-width:11ch}
 h1 .hl,h2 .hl{background:linear-gradient(100deg,var(--lime),#e8ffb0 40%,var(--vio));-webkit-background-clip:text;background-clip:text;color:transparent}
 .sub{font-size:clamp(1.1rem,1.6vw,1.3rem);color:#d4d3cc;max-width:36ch;margin:28px 0 36px}
 .sub b{color:var(--fg)}
@@ -245,12 +245,19 @@ h2{font-family:var(--d);font-weight:700;font-size:clamp(2.3rem,5.6vw,5rem);line-
 .chn.ig:hover{border-color:#ff3d9a88;box-shadow:0 20px 60px -20px #ff3d9a66}
 .chn.ig:hover .go{background:linear-gradient(90deg,#ff7a00,#ff3d9a,#8a3dff);color:#fff}
 
-/* cursos */
-.courses{text-align:center;max-width:860px;margin:0 auto}
-.courses h2{font-size:clamp(2.6rem,7vw,6.2rem)}
-.courses .lead{margin-left:auto;margin-right:auto}
-.soon{display:inline-block;padding:7px 14px;border-radius:999px;border:1px dashed #c8ff3d88;color:var(--lime);margin-bottom:22px}
-
+/* impacto */
+.spot{position:fixed;left:0;top:0;width:520px;height:520px;margin:-260px 0 0 -260px;border-radius:50%;pointer-events:none;z-index:1;background:radial-gradient(circle,#c8ff3d1c,#8a6bff12 40%,transparent 70%);transform:translate3d(var(--x,-999px),var(--y,-999px),0);transition:opacity .4s}
+.hero .wrap{will-change:transform,opacity}
+.mq{position:relative;z-index:2;overflow:hidden;padding:28px 0;transform:rotate(-2.5deg);margin:40px -2vw 0;background:var(--lime);color:#0a0a0a;box-shadow:0 30px 80px -30px #c8ff3d80}
+.mq-row{display:flex;width:max-content;font-family:var(--d);font-weight:800;font-size:clamp(2.6rem,7vw,6.4rem);line-height:1;letter-spacing:-.03em;text-transform:uppercase;white-space:nowrap;will-change:transform}
+.mq-row.out{color:transparent;-webkit-text-stroke:1.5px #0a0a0a;margin-top:6px}
+.mani{min-height:110vh;display:flex;align-items:center}
+.mani-t{font-family:var(--d);font-weight:700;font-size:clamp(2.2rem,5.8vw,5.6rem);line-height:1.02;letter-spacing:-.035em;margin:0 auto;max-width:18ch;text-align:center}
+.mani-t em{font-style:normal}
+.js .mani-t .sw{color:#ffffff1f;transition:color .25s}
+.js .mani-t .sw.on{color:var(--fg)}
+.js .mani-t em .sw.on{color:var(--lime)}
+.btn{will-change:transform}
 /* faq + contato */
 .faq{max-width:820px}
 .faq details{border-bottom:1px solid var(--line)}
@@ -286,7 +293,9 @@ footer a{text-decoration:none}footer a:hover{color:var(--lime)}
   .glass{background:#0d0d12d9}
   .scroll{display:none}
 }
+@media (hover:none){.spot{display:none}}
 @media (prefers-reduced-motion:reduce){
+  .spot{display:none}
   *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
   .js .rv{opacity:1;transform:none;filter:none}
   .js [data-split] .wd>span{transform:none}
@@ -297,6 +306,7 @@ footer a{text-decoration:none}footer a:hover{color:var(--lime)}
 <script>document.documentElement.classList.add('js')</script>
 <a class="skip" href="#conteudo">Pular para o conteúdo</a>
 <canvas id="gl" aria-hidden="true"></canvas>
+<div class="spot" aria-hidden="true"></div>
 <div class="vig" aria-hidden="true"></div>
 
 <header class="top" id="top">
@@ -306,7 +316,7 @@ footer a{text-decoration:none}footer a:hover{color:var(--lime)}
       <li><a href="#consultoria">Consultoria</a></li>
       <li><a href="#criacoes">Criações</a></li>
       <li><a href="#canais">Canais</a></li>
-      <li><a href="#cursos">Cursos</a></li>
+      <li><a href="#contato">Contato</a></li>
     </ul></nav>
     <a class="btn p sm" href="https://wa.me/5518996496255?text=Ol%C3%A1%2C%20Igor!%20Quero%20falar%20sobre%20uma%20consultoria%20em%20IA." target="_blank" rel="noopener">Falar comigo<span class="sr"> no WhatsApp (abre em nova aba)</span></a>
   </div>
@@ -333,6 +343,11 @@ footer a{text-decoration:none}footer a:hover{color:var(--lime)}
     </div>
     <span class="scroll mono" aria-hidden="true">role</span>
   </section>
+
+  <div class="mq" aria-hidden="true">
+    <div class="mq-row"><span>Inteligência Artificial ✦ Consultoria ✦ Agentes ✦ Automação ✦ Conteúdo ✦&nbsp;</span><span>Inteligência Artificial ✦ Consultoria ✦ Agentes ✦ Automação ✦ Conteúdo ✦&nbsp;</span></div>
+    <div class="mq-row out"><span>YouTube ✦ TikTok ✦ Instagram ✦ @igor.cacerez ✦&nbsp;</span><span>YouTube ✦ TikTok ✦ Instagram ✦ @igor.cacerez ✦&nbsp;</span></div>
+  </div>
 
   <section id="consultoria" data-shape="1" data-side="r" aria-labelledby="c-t">
     <div class="wrap"><div class="half">
@@ -384,13 +399,10 @@ footer a{text-decoration:none}footer a:hover{color:var(--lime)}
     </div></div>
   </section>
 
-  <section id="cursos" data-shape="4" data-side="c" aria-labelledby="k-t">
-    <div class="wrap"><div class="courses">
-      <span class="soon mono">Em breve</span>
-      <h2 id="k-t" data-split>Cursos de IA <span class="hl">direto ao ponto.</span></h2>
-      <p class="lead rv">Estou preparando cursos para você dominar IA na prática — do primeiro prompt ao seu primeiro produto. Entre na lista e saiba antes de todo mundo.</p>
-      <a class="btn p rv" href="https://wa.me/5518996496255?text=Ol%C3%A1%2C%20Igor!%20Quero%20entrar%20na%20lista%20de%20espera%20dos%20cursos%20de%20IA." target="_blank" rel="noopener">Entrar na lista de espera<span class="sr"> (abre o WhatsApp)</span></a>
-    </div></div>
+  <section id="manifesto" class="mani" data-shape="4" data-side="c" aria-label="Manifesto">
+    <div class="wrap">
+      <p class="mani-t" data-scrub>A IA não vai substituir você. <em>Quem sabe usar IA vai.</em> Eu estou aqui para garantir que essa pessoa seja você.</p>
+    </div>
   </section>
 
   <section id="perguntas" data-shape="4" data-side="c" aria-labelledby="f-t" style="padding-top:0">
@@ -401,7 +413,6 @@ footer a{text-decoration:none}footer a:hover{color:var(--lime)}
       <details><summary>Como funciona a consultoria em IA?</summary><p>Começa com um diagnóstico do seu negócio para encontrar onde a IA economiza tempo ou gera receita. Depois eu construo a solução — agentes, automações, atendimento no WhatsApp, integrações — e treino sua equipe. O primeiro contato é pelo WhatsApp (18) 99649-6255.</p></details>
       <details><summary>A consultoria serve para empresas pequenas?</summary><p>Sim. Muitas das soluções mais úteis são simples e baratas de manter, como um atendimento automático no WhatsApp ou a automação de tarefas repetitivas.</p></details>
       <details><summary>O que são a Cognisa e o Kalorias?</summary><p>A Cognisa é um sistema para restaurantes (salão, cozinha e delivery próprio por R$ 49,90/mês). O Kalorias é um app gratuito que calcula calorias a partir da foto do prato usando IA.</p></details>
-      <details><summary>Quando os cursos serão lançados?</summary><p>Os cursos estão em produção. Quem entrar na lista de espera pelo WhatsApp recebe o aviso primeiro.</p></details>
     </div></div>
   </section>
 
@@ -453,6 +464,43 @@ document.querySelectorAll('.rv,[data-split]').forEach(el => io.observe(el));
 // header ao rolar
 const hdr = document.getElementById('top');
 addEventListener('scroll', () => hdr.classList.toggle('sc', scrollY > 30), { passive: true });
+const rm = matchMedia('(prefers-reduced-motion: reduce)').matches;
+// manifesto: palavras acendem com a rolagem
+const mani = document.querySelector('[data-scrub]');
+const sw = [];
+const wrapW = n => [...n.childNodes].forEach(c => {
+  if (c.nodeType === 3) { const f = document.createDocumentFragment(); c.textContent.split(/(\s+)/).forEach(w => { if (!w) return; if (/^\s+$/.test(w)) return f.append(w); const s = document.createElement('span'); s.className = 'sw'; s.textContent = w; sw.push(s); f.append(s); }); c.replaceWith(f); }
+  else wrapW(c);
+});
+wrapW(mani);
+// faixas, herói e manifesto ligados à rolagem
+const rows = document.querySelectorAll('.mq-row'), heroW = document.querySelector('.hero .wrap');
+let ticking = false;
+function onScroll() {
+  ticking = false;
+  const y = scrollY, h = innerHeight;
+  if (!rm) {
+    rows.forEach((r, i) => { const W = r.scrollWidth / 2, o = (y * 0.4) % W; r.style.transform = `translate3d(${i ? o - W : -o}px,0,0)`; });
+    const k = Math.min(1, y / h);
+    heroW.style.transform = `translate3d(0,${k * -80}px,0) scale(${1 - k * 0.06})`;
+    heroW.style.opacity = 1 - k * 1.1;
+  }
+  const r = mani.getBoundingClientRect();
+  const p = Math.min(1, Math.max(0, (h * 0.85 - r.top) / (r.height * 0.9)));
+  const n = rm ? sw.length : Math.round(p * sw.length);
+  sw.forEach((s, i) => s.classList.toggle('on', i < n));
+}
+addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(onScroll); } }, { passive: true });
+onScroll();
+// luz que segue o cursor + botões magnéticos
+const spot = document.querySelector('.spot');
+if (!rm && matchMedia('(hover:hover)').matches) {
+  addEventListener('pointermove', e => { spot.style.setProperty('--x', e.clientX + 'px'); spot.style.setProperty('--y', e.clientY + 'px'); });
+  document.querySelectorAll('.btn').forEach(b => {
+    b.addEventListener('pointermove', e => { const r = b.getBoundingClientRect(); b.style.transform = `translate(${(e.clientX - r.left - r.width / 2) * .25}px,${(e.clientY - r.top - r.height / 2) * .35}px)`; });
+    b.addEventListener('pointerleave', () => b.style.transform = '');
+  });
+}
 // inclinação 3D nos cards de produto
 if (!matchMedia('(prefers-reduced-motion: reduce)').matches) document.querySelectorAll('.prod').forEach(c => {
   c.addEventListener('pointermove', e => { const r = c.getBoundingClientRect(), x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5; c.style.transform = `perspective(900px) rotateY(${x * 7}deg) rotateX(${-y * 7}deg)`; });

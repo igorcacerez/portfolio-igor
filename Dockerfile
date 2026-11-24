@@ -9,15 +9,24 @@ RUN pnpm install --frozen-lockfile
 COPY . .
 RUN pnpm build
 
-FROM nginx:1.29-alpine AS production
+FROM node:24-alpine AS production
 
-COPY nginx.conf /etc/nginx/conf.d/default.conf
-COPY --from=build /app/dist /usr/share/nginx/html
+ENV NODE_ENV=production \
+    PORT=80 \
+    DATA_DIR=/data \
+    DIST_DIR=/app/dist
+
+WORKDIR /app
+COPY server ./server
+COPY --from=build /app/dist ./dist
+
+# banco SQLite e arquivos dos slides ficam aqui — monte um volume em /data no EasyPanel
+RUN mkdir -p /data
+VOLUME ["/data"]
 
 EXPOSE 80
 
 HEALTHCHECK --interval=30s --timeout=3s --start-period=10s --retries=3 \
-  CMD wget --quiet --tries=1 --spider http://127.0.0.1/ || exit 1
+  CMD wget --quiet --tries=1 --spider http://127.0.0.1/health || exit 1
 
-CMD ["nginx", "-g", "daemon off;"]
-
+CMD ["node", "--disable-warning=ExperimentalWarning", "server/index.mjs"]

@@ -1,0 +1,437 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>Materiais · Igor Cacerez</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%23d7ff45'/><path d='M9 10h14M9 16h14M9 22h8' stroke='%23070909' stroke-width='3' stroke-linecap='round'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400..800&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<style>
+:root {
+  --bg: #070909; --surface: #0e1214; --raised: #141a1d; --text: #f3f4ed; --muted: #a8ada7; --faint: #656b68;
+  --accent: #d7ff45; --violet: #9c83ff; --danger: #ff5d6c; --line: rgba(243,244,237,.12); --line2: rgba(243,244,237,.24);
+  --mono: 'IBM Plex Mono', Consolas, monospace; --ease: cubic-bezier(.22,1,.36,1); --r: 18px;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+body { margin: 0; min-height: 100vh; background: var(--bg); color: var(--text); font: 16px/1.5 Manrope, system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+body::before { content: ""; position: fixed; inset: 0; pointer-events: none; z-index: -1;
+  background: radial-gradient(900px 500px at 85% -10%, rgba(156,131,255,.16), transparent 60%), radial-gradient(700px 400px at -10% 110%, rgba(215,255,69,.09), transparent 60%),
+  linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px) 0 0 / 64px 64px, linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px) 0 0 / 64px 64px; }
+button, input, textarea { font: inherit; color: inherit; }
+a { color: inherit; }
+.mono { font-family: var(--mono); font-size: 12px; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: 44px; padding: 0 20px; border-radius: 999px; border: 1px solid var(--line2);
+  background: transparent; cursor: pointer; font-weight: 700; font-size: 15px; text-decoration: none; transition: transform .2s var(--ease), background .2s, border-color .2s; white-space: nowrap; }
+.btn:hover { border-color: var(--text); transform: translateY(-1px); }
+.btn.pri { background: var(--accent); color: #070909; border-color: var(--accent); }
+.btn.pri:hover { box-shadow: 0 10px 30px -10px rgba(215,255,69,.6); }
+.btn.sm { height: 36px; padding: 0 14px; font-size: 13.5px; }
+.btn.ico { width: 38px; height: 38px; padding: 0; }
+.btn.danger:hover { border-color: var(--danger); color: var(--danger); }
+.btn:disabled { opacity: .5; pointer-events: none; }
+svg.i { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex: none; }
+.field { display: flex; flex-direction: column; gap: 8px; }
+.field label { font-weight: 700; font-size: 14px; }
+.field small { color: var(--faint); font-size: 13px; }
+.input { width: 100%; height: 50px; padding: 0 16px; border-radius: 14px; border: 1px solid var(--line2); background: rgba(255,255,255,.03); outline: none; transition: border-color .2s, box-shadow .2s; }
+textarea.input { height: auto; min-height: 90px; padding: 14px 16px; resize: vertical; }
+.input:focus { border-color: var(--accent); box-shadow: 0 0 0 4px rgba(215,255,69,.12); }
+.prefix { display: flex; align-items: center; border-radius: 14px; border: 1px solid var(--line2); background: rgba(255,255,255,.03); overflow: hidden; }
+.prefix span { padding: 0 4px 0 16px; color: var(--faint); font-family: var(--mono); font-size: 14px; white-space: nowrap; }
+.prefix .input { border: 0; background: transparent; padding-left: 0; font-family: var(--mono); font-size: 14px; box-shadow: none; }
+.prefix:focus-within { border-color: var(--accent); box-shadow: 0 0 0 4px rgba(215,255,69,.12); }
+
+/* login */
+#login { min-height: 100vh; display: grid; place-items: center; padding: 24px; }
+.login-card { width: min(420px, 100%); padding: 40px 34px; border-radius: 28px; background: linear-gradient(180deg, rgba(20,26,29,.9), rgba(14,18,20,.9)); border: 1px solid var(--line);
+  box-shadow: 0 40px 120px -40px rgba(0,0,0,.8); backdrop-filter: blur(20px); animation: up .8s var(--ease) both; }
+.logo { width: 52px; height: 52px; border-radius: 16px; background: var(--accent); display: grid; place-items: center; color: #070909; margin-bottom: 26px; }
+.logo svg { width: 26px; height: 26px; }
+.login-card h1 { margin: 0; font-size: 30px; letter-spacing: -.02em; line-height: 1.1; }
+.login-card p { margin: 8px 0 28px; color: var(--muted); }
+.login-card form { display: flex; flex-direction: column; gap: 16px; }
+.err { color: var(--danger); font-size: 14px; min-height: 20px; margin: 0; }
+@keyframes up { from { opacity: 0; transform: translateY(24px); filter: blur(8px); } }
+@keyframes shake { 20%, 60% { transform: translateX(-8px); } 40%, 80% { transform: translateX(8px); } }
+
+/* app */
+header.top { position: sticky; top: 0; z-index: 10; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 18px clamp(18px, 4vw, 56px);
+  background: rgba(7,9,9,.72); backdrop-filter: blur(16px); border-bottom: 1px solid var(--line); }
+.brand { display: flex; align-items: center; gap: 12px; font-weight: 800; }
+.brand .logo { width: 38px; height: 38px; border-radius: 12px; margin: 0; }
+.brand .logo svg { width: 20px; height: 20px; }
+main.wrap { padding: clamp(24px, 5vw, 64px) clamp(18px, 4vw, 56px) 80px; max-width: 1360px; margin: 0 auto; }
+.hero { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap; margin-bottom: 36px; animation: up .7s var(--ease) both; }
+.hero h2 { margin: 10px 0 0; font-size: clamp(36px, 5vw, 60px); line-height: 1; letter-spacing: -.035em; }
+.hero h2 em { font-style: normal; color: var(--accent); }
+.tools { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+.search { position: relative; }
+.search svg { position: absolute; left: 14px; top: 50%; translate: 0 -50%; color: var(--faint); }
+.search .input { height: 44px; padding-left: 42px; width: 260px; border-radius: 999px; }
+.stats { display: flex; gap: 12px; margin-bottom: 28px; flex-wrap: wrap; }
+.stat { padding: 14px 20px; border-radius: 16px; border: 1px solid var(--line); background: rgba(255,255,255,.02); }
+.stat b { display: block; font-size: 26px; letter-spacing: -.02em; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(330px, 1fr)); gap: 18px; }
+.card { position: relative; border-radius: var(--r); background: var(--surface); border: 1px solid var(--line); overflow: hidden; display: flex; flex-direction: column;
+  transition: transform .35s var(--ease), border-color .3s, box-shadow .35s; animation: up .6s var(--ease) both; animation-delay: calc(var(--i) * 50ms); }
+.card:hover { transform: translateY(-4px); border-color: var(--line2); box-shadow: 0 30px 60px -30px rgba(0,0,0,.9); }
+.thumb { aspect-ratio: 16 / 9; position: relative; overflow: hidden; background: #0b0f11; border-bottom: 1px solid var(--line); }
+.thumb iframe { position: absolute; left: 0; top: 0; width: 1600px; height: 900px; border: 0; transform-origin: 0 0; pointer-events: none; opacity: 0; transition: opacity .6s; }
+.thumb iframe.ok { opacity: 1; }
+.thumb .ph { position: absolute; inset: 0; display: grid; place-items: center; font: 800 44px/1 Manrope; color: rgba(255,255,255,.06); letter-spacing: -.03em; }
+.thumb a { position: absolute; inset: 0; z-index: 2; }
+.badge { position: absolute; top: 12px; left: 12px; z-index: 3; padding: 5px 10px; border-radius: 999px; font: 600 11px/1 var(--mono); letter-spacing: .12em; text-transform: uppercase; background: rgba(7,9,9,.8); backdrop-filter: blur(8px); border: 1px solid var(--line2); }
+.badge.off { color: var(--danger); }
+.card .body { padding: 18px 20px 20px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
+.card h3 { margin: 0; font-size: 19px; letter-spacing: -.01em; line-height: 1.25; }
+.card .desc { margin: 0; color: var(--muted); font-size: 14px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.link { display: flex; align-items: center; gap: 8px; padding: 8px 8px 8px 12px; border-radius: 12px; background: rgba(255,255,255,.035); border: 1px solid var(--line); font: 500 12.5px/1 var(--mono); color: var(--muted); }
+.link span { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.link button { border: 0; background: transparent; color: var(--text); cursor: pointer; padding: 4px; border-radius: 8px; display: grid; }
+.link button:hover { color: var(--accent); }
+.meta { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 6px; }
+.meta .mono { font-size: 11px; letter-spacing: .08em; }
+.acts { display: flex; gap: 6px; }
+.empty { text-align: center; padding: 80px 20px; border: 1px dashed var(--line2); border-radius: 24px; animation: up .7s var(--ease) both; }
+.empty .logo { margin: 0 auto 20px; }
+.empty h3 { font-size: 24px; margin: 0 0 6px; }
+.empty p { color: var(--muted); margin: 0 0 24px; }
+
+/* editor (gaveta) */
+.veil { position: fixed; inset: 0; background: rgba(0,0,0,.6); backdrop-filter: blur(4px); z-index: 30; opacity: 0; transition: opacity .35s; }
+.veil.on { opacity: 1; }
+.drawer { position: fixed; top: 0; right: 0; bottom: 0; width: min(760px, 100%); z-index: 31; background: var(--surface); border-left: 1px solid var(--line);
+  transform: translateX(100%); transition: transform .5s var(--ease); display: flex; flex-direction: column; }
+.drawer.on { transform: none; }
+.drawer header { display: flex; justify-content: space-between; align-items: center; padding: 22px 28px; border-bottom: 1px solid var(--line); }
+.drawer header h3 { margin: 4px 0 0; font-size: 24px; letter-spacing: -.02em; }
+.drawer form { flex: 1; overflow: auto; padding: 26px 28px; display: flex; flex-direction: column; gap: 22px; }
+.drawer footer { padding: 18px 28px; border-top: 1px solid var(--line); display: flex; gap: 10px; justify-content: flex-end; align-items: center; }
+.drawer footer .err { margin-right: auto; }
+.row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+@media (max-width: 640px) { .row2 { grid-template-columns: 1fr; } .search .input { width: 100%; } .hero .tools { width: 100%; } }
+.drop { border: 1.5px dashed var(--line2); border-radius: 18px; padding: 28px; text-align: center; transition: border-color .2s, background .2s; cursor: pointer; }
+.drop.over { border-color: var(--accent); background: rgba(215,255,69,.05); }
+.drop .logo { margin: 0 auto 14px; width: 46px; height: 46px; background: rgba(215,255,69,.12); color: var(--accent); }
+.drop b { display: block; font-size: 16px; }
+.drop p { margin: 4px 0 16px; color: var(--muted); font-size: 14px; }
+.drop .btns { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
+.tabs { display: flex; gap: 4px; padding: 4px; border-radius: 999px; background: rgba(255,255,255,.04); border: 1px solid var(--line); width: fit-content; }
+.tabs button { border: 0; background: transparent; padding: 8px 16px; border-radius: 999px; cursor: pointer; font-weight: 700; font-size: 13.5px; color: var(--muted); }
+.tabs button.on { background: var(--text); color: var(--bg); }
+.code { font: 13px/1.55 var(--mono) !important; min-height: 300px !important; white-space: pre; tab-size: 2; }
+.files { display: flex; flex-direction: column; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; max-height: 240px; overflow-y: auto; }
+.files div { display: flex; align-items: center; gap: 10px; padding: 10px 14px; border-top: 1px solid var(--line); font: 500 13px/1.2 var(--mono); }
+.files div:first-child { border-top: 0; }
+.files div span { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.files div em { font-style: normal; color: var(--faint); font-size: 12px; }
+.files div.new span { color: var(--accent); }
+.files div.del span { text-decoration: line-through; color: var(--faint); }
+.files button { border: 0; background: transparent; color: var(--muted); cursor: pointer; padding: 4px; display: grid; }
+.files button:hover { color: var(--danger); }
+.switch { display: flex; align-items: center; gap: 12px; cursor: pointer; user-select: none; font-weight: 700; font-size: 14px; }
+.switch input { display: none; }
+.switch i { width: 44px; height: 26px; border-radius: 999px; background: var(--line2); position: relative; transition: background .25s; }
+.switch i::after { content: ""; position: absolute; top: 3px; left: 3px; width: 20px; height: 20px; border-radius: 50%; background: #fff; transition: transform .3s var(--ease); }
+.switch input:checked + i { background: var(--accent); }
+.switch input:checked + i::after { transform: translateX(18px); background: #070909; }
+.hint { font-size: 13px; color: var(--muted); padding: 12px 14px; border-radius: 12px; background: rgba(156,131,255,.08); border: 1px solid rgba(156,131,255,.25); }
+.hint code { font-family: var(--mono); color: var(--text); font-size: 12px; }
+
+/* toast + confirm */
+.toast { position: fixed; left: 50%; bottom: 28px; translate: -50% 0; z-index: 60; padding: 14px 20px; border-radius: 14px; background: var(--text); color: var(--bg); font-weight: 700;
+  box-shadow: 0 20px 50px -10px rgba(0,0,0,.6); display: flex; gap: 10px; align-items: center; animation: toast .5s var(--ease) both; }
+.toast.err { background: var(--danger); color: #fff; }
+@keyframes toast { from { opacity: 0; translate: -50% 20px; } }
+dialog { border: 1px solid var(--line2); border-radius: 22px; background: var(--raised); color: var(--text); padding: 28px; width: min(420px, calc(100% - 32px)); }
+dialog::backdrop { background: rgba(0,0,0,.6); backdrop-filter: blur(4px); }
+dialog h3 { margin: 0 0 8px; font-size: 22px; }
+dialog p { margin: 0 0 24px; color: var(--muted); }
+dialog .acts { justify-content: flex-end; gap: 10px; }
+.btn.red { background: var(--danger); border-color: var(--danger); color: #fff; }
+.spin { width: 18px; height: 18px; border: 2px solid currentColor; border-right-color: transparent; border-radius: 50%; animation: gira .7s linear infinite; }
+@keyframes gira { to { rotate: 360deg; } }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute">
+  <symbol id="i-deck" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M12 17v4M8 21h8"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+  <symbol id="i-copy" viewBox="0 0 24 24"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></symbol>
+  <symbol id="i-edit" viewBox="0 0 24 24"><path d="M4 20h4L19 9l-4-4L4 16z"/><path d="M13.5 6.5l4 4"/></symbol>
+  <symbol id="i-trash" viewBox="0 0 24 24"><path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13"/></symbol>
+  <symbol id="i-open" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9M18 14v6H4V6h6"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></symbol>
+  <symbol id="i-up" viewBox="0 0 24 24"><path d="M12 16V4M7 9l5-5 5 5M4 20h16"/></symbol>
+  <symbol id="i-out" viewBox="0 0 24 24"><path d="M15 4h4a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1h-4M10 17l-5-5 5-5M5 12h11"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></symbol>
+</svg>
+
+<section id="login" hidden>
+  <div class="login-card">
+    <div class="logo"><svg class="i"><use href="#i-lock"/></svg></div>
+    <span class="mono">área restrita</span>
+    <h1>Materiais de aula</h1>
+    <p>Entre para gerenciar os slides dos seus alunos.</p>
+    <form id="fLogin">
+      <div class="field"><label for="u">Usuário</label><input class="input" id="u" autocomplete="username" required></div>
+      <div class="field"><label for="pw">Senha</label><input class="input" id="pw" type="password" autocomplete="current-password" required></div>
+      <p class="err" id="lErr"></p>
+      <button class="btn pri" style="height:52px">Entrar</button>
+    </form>
+  </div>
+</section>
+
+<div id="app" hidden>
+  <header class="top">
+    <div class="brand"><div class="logo"><svg class="i"><use href="#i-deck"/></svg></div>Materiais <span class="mono" style="margin-left:6px">igorcacerez.com.br</span></div>
+    <button class="btn sm" id="bSair"><svg class="i"><use href="#i-out"/></svg>Sair</button>
+  </header>
+  <main class="wrap">
+    <div class="hero">
+      <div><span class="mono">// painel do professor</span><h2>Seus <em>slides</em>,<br>prontos pra turma.</h2></div>
+      <div class="tools">
+        <label class="search"><svg class="i"><use href="#i-search"/></svg><input class="input" id="q" placeholder="Buscar slide…"></label>
+        <button class="btn pri" id="bNovo"><svg class="i"><use href="#i-plus"/></svg>Novo slide</button>
+      </div>
+    </div>
+    <div class="stats" id="stats"></div>
+    <div class="grid" id="grid"></div>
+  </main>
+</div>
+
+<div class="veil" id="veil" hidden></div>
+<aside class="drawer" id="drawer" aria-hidden="true">
+  <header>
+    <div><span class="mono" id="dTag">novo material</span><h3 id="dTit">Cadastrar slide</h3></div>
+    <button class="btn ico" id="bFechar" aria-label="Fechar"><svg class="i"><use href="#i-x"/></svg></button>
+  </header>
+  <form id="fSlide" novalidate>
+    <div class="field"><label for="title">Título</label><input class="input" id="title" placeholder="Ex.: Aula 03 — Laços de repetição" required></div>
+    <div class="field"><label for="slug">Link</label><div class="prefix"><span>/slide/</span><input class="input" id="slug" placeholder="aula-03-lacos"></div><small>Gerado a partir do título. Só letras, números e hífen.</small></div>
+    <div class="field"><label for="desc">Descrição <small style="font-weight:500">(opcional)</small></label><textarea class="input" id="desc" rows="2" placeholder="Para qual turma / o que tem nesse material"></textarea></div>
+    <label class="switch"><input type="checkbox" id="pub" checked><i></i>Disponível para os alunos</label>
+
+    <div class="field">
+      <label>Apresentação</label>
+      <div class="drop" id="drop">
+        <div class="logo"><svg class="i"><use href="#i-up"/></svg></div>
+        <b>Arraste a pasta do slide aqui</b>
+        <p>O <code>index.html</code> vira o slide e as imagens/arquivos vão junto, mantendo as pastas.</p>
+        <div class="btns">
+          <button type="button" class="btn sm" id="bPasta">Escolher pasta</button>
+          <button type="button" class="btn sm" id="bArqs">Escolher arquivos</button>
+        </div>
+        <input type="file" id="inPasta" webkitdirectory multiple hidden>
+        <input type="file" id="inArqs" multiple hidden>
+      </div>
+    </div>
+
+    <div class="tabs" id="tabs"><button type="button" class="on" data-t="arq">Arquivos</button><button type="button" data-t="cod">Código HTML</button></div>
+    <div id="tArq" class="field">
+      <div class="files" id="files"></div>
+      <small id="filesInfo"></small>
+    </div>
+    <div id="tCod" class="field" hidden>
+      <textarea class="input code" id="html" spellcheck="false" placeholder="<!doctype html>…"></textarea>
+      <div class="hint">Use o motor padrão: <code>&lt;link rel="stylesheet" href="/deck/deck.css"&gt;</code> e <code>&lt;script src="/deck/deck.js"&gt;&lt;/script&gt;</code>. Caminhos relativos (ex.: <code>img/capa.jpg</code>) apontam para os arquivos enviados.</div>
+    </div>
+  </form>
+  <footer>
+    <p class="err" id="sErr"></p>
+    <button type="button" class="btn" id="bCancelar">Cancelar</button>
+    <button type="button" class="btn pri" id="bSalvar">Salvar</button>
+  </footer>
+</aside>
+
+<dialog id="dlg"><h3>Excluir slide?</h3><p id="dlgTxt"></p><div class="acts"><button class="btn" value="no" id="dNo">Cancelar</button><button class="btn red" id="dYes">Excluir</button></div></dialog>
+
+<script>
+const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)]
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c])
+const kb = n => n > 1048576 ? (n / 1048576).toFixed(1) + ' MB' : Math.max(1, Math.round(n / 1024)) + ' KB'
+const slugify = s => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 80)
+const dataBr = s => new Date(s.replace(' ', 'T') + 'Z').toLocaleDateString('pt-BR', { day: '2-digit', month: 'short', year: 'numeric' })
+const origin = location.origin
+let slides = [], editing = null, novos = [], removidos = new Set(), existentes = [], slugManual = false
+
+async function call(url, opts = {}) {
+  const r = await fetch(url, { headers: { 'Content-Type': 'application/json' }, credentials: 'same-origin', ...opts, body: opts.body && JSON.stringify(opts.body) })
+  const d = await r.json().catch(() => ({}))
+  if (r.status === 401 && url !== '/api/login') { mostraLogin(); throw new Error(d.error) }
+  if (!r.ok) throw new Error(d.error || 'Algo deu errado.')
+  return d
+}
+function toast(msg, err) { $$('.toast').forEach(t => t.remove()); const t = document.createElement('div'); t.className = 'toast' + (err ? ' err' : ''); t.textContent = msg; document.body.append(t); setTimeout(() => t.remove(), 2800) }
+
+/* ---------- login ---------- */
+function mostraLogin() { $('#app').hidden = true; $('#login').hidden = false; setTimeout(() => $('#u').focus(), 50) }
+$('#fLogin').onsubmit = async e => {
+  e.preventDefault(); $('#lErr').textContent = ''
+  try { await call('/api/login', { method: 'POST', body: { user: $('#u').value, pass: $('#pw').value } }); $('#pw').value = ''; inicia() }
+  catch (er) { $('#lErr').textContent = er.message; const c = $('.login-card'); c.style.animation = 'none'; void c.offsetWidth; c.style.animation = 'shake .4s' }
+}
+$('#bSair').onclick = async () => { await call('/api/logout', { method: 'POST' }).catch(() => {}); mostraLogin() }
+
+async function inicia() {
+  try { await call('/api/me') } catch { return }
+  $('#login').hidden = true; $('#app').hidden = false; carrega()
+}
+
+/* ---------- lista ---------- */
+async function carrega() { slides = await call('/api/slides'); render() }
+function render() {
+  const q = slugify($('#q').value)
+  const lista = slides.filter(s => !q || slugify(s.title + ' ' + s.slug + ' ' + s.description).includes(q))
+  const views = slides.reduce((a, s) => a + s.views, 0)
+  $('#stats').innerHTML = `<div class="stat"><span class="mono">slides</span><b>${slides.length}</b></div><div class="stat"><span class="mono">publicados</span><b>${slides.filter(s => s.published).length}</b></div><div class="stat"><span class="mono">visualizações</span><b>${views.toLocaleString('pt-BR')}</b></div>`
+  if (!slides.length) {
+    $('#grid').style.display = 'block'
+    $('#grid').innerHTML = `<div class="empty"><div class="logo"><svg class="i"><use href="#i-deck"/></svg></div><h3>Nenhum slide ainda</h3><p>Cadastre sua primeira apresentação e compartilhe o link com a turma.</p><button class="btn pri" onclick="abre()"><svg class="i"><use href="#i-plus"/></svg>Novo slide</button></div>`
+    return
+  }
+  $('#grid').style.display = ''
+  $('#grid').innerHTML = lista.map((s, n) => `
+    <article class="card" style="--i:${n}">
+      <div class="thumb"><div class="ph">${esc(s.title.slice(0, 2).toUpperCase())}</div>
+        <iframe loading="lazy" tabindex="-1" data-src="/slide/${s.slug}/" title=""></iframe>
+        <a href="/slide/${s.slug}/" target="_blank" aria-label="Abrir ${esc(s.title)}"></a>
+        <span class="badge ${s.published ? '' : 'off'}">${s.published ? 'publicado' : 'oculto'}</span></div>
+      <div class="body">
+        <h3>${esc(s.title)}</h3>
+        ${s.description ? `<p class="desc">${esc(s.description)}</p>` : ''}
+        <div class="link"><span>${origin.replace(/^https?:\/\//, '')}/slide/${s.slug}</span><button title="Copiar link" onclick="copia('${s.slug}')"><svg class="i"><use href="#i-copy"/></svg></button></div>
+        <div class="meta"><span class="mono">${dataBr(s.updated_at)} · ${s.views} views</span>
+          <div class="acts">
+            <a class="btn ico sm" href="/slide/${s.slug}/" target="_blank" title="Abrir"><svg class="i"><use href="#i-open"/></svg></a>
+            <button class="btn ico sm" title="Editar" onclick="abre(${s.id})"><svg class="i"><use href="#i-edit"/></svg></button>
+            <button class="btn ico sm danger" title="Excluir" onclick="exclui(${s.id})"><svg class="i"><use href="#i-trash"/></svg></button>
+          </div></div>
+      </div>
+    </article>`).join('') || '<p class="mono">nada encontrado.</p>'
+  miniaturas()
+}
+const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { const f = e.target; f.src = f.dataset.src; f.onload = () => f.classList.add('ok'); io.unobserve(f) } }), { rootMargin: '200px' })
+function miniaturas() { $$('.thumb').forEach(t => { const f = t.querySelector('iframe'); f.style.transform = `scale(${t.clientWidth / 1600})`; io.observe(f) }) }
+addEventListener('resize', () => $$('.thumb').forEach(t => t.querySelector('iframe').style.transform = `scale(${t.clientWidth / 1600})`))
+$('#q').oninput = render
+window.copia = slug => navigator.clipboard.writeText(`${origin}/slide/${slug}`).then(() => toast('Link copiado!'))
+
+/* ---------- excluir ---------- */
+window.exclui = id => {
+  const s = slides.find(x => x.id === id), d = $('#dlg')
+  $('#dlgTxt').textContent = `"${s.title}" e todos os arquivos dele serão apagados. O link /slide/${s.slug} deixa de funcionar.`
+  d.showModal()
+  $('#dNo').onclick = () => d.close()
+  $('#dYes').onclick = async () => { d.close(); try { await call('/api/slides/' + id, { method: 'DELETE' }); toast('Slide excluído'); carrega() } catch (e) { toast(e.message, 1) } }
+}
+
+/* ---------- editor ---------- */
+window.abre = async id => {
+  editing = id || null; novos = []; removidos = new Set(); existentes = []; slugManual = !!id
+  $('#fSlide').reset(); $('#html').value = ''; $('#sErr').textContent = ''; $('#pub').checked = true
+  $('#dTag').textContent = id ? 'editar material' : 'novo material'; $('#dTit').textContent = id ? 'Editar slide' : 'Cadastrar slide'
+  aba('arq')
+  if (id) {
+    const s = await call('/api/slides/' + id)
+    $('#title').value = s.title; $('#slug').value = s.slug; $('#desc').value = s.description; $('#pub').checked = s.published; $('#html').value = s.html
+    existentes = s.files
+  }
+  arquivos()
+  $('#veil').hidden = false; requestAnimationFrame(() => { $('#veil').classList.add('on'); $('#drawer').classList.add('on') })
+  setTimeout(() => $('#title').focus(), 300)
+}
+function fecha() { $('#veil').classList.remove('on'); $('#drawer').classList.remove('on'); setTimeout(() => ($('#veil').hidden = true), 400) }
+$('#bFechar').onclick = $('#bCancelar').onclick = $('#veil').onclick = fecha
+addEventListener('keydown', e => { if (e.key === 'Escape' && $('#drawer').classList.contains('on')) fecha() })
+$('#bNovo').onclick = () => abre()
+$('#title').oninput = () => { if (!slugManual) $('#slug').value = slugify($('#title').value) }
+$('#slug').oninput = () => { slugManual = true }
+$('#slug').onblur = () => { $('#slug').value = slugify($('#slug').value) }
+function aba(t) { $$('#tabs button').forEach(b => b.classList.toggle('on', b.dataset.t === t)); $('#tArq').hidden = t !== 'arq'; $('#tCod').hidden = t !== 'cod' }
+$('#tabs').onclick = e => { const b = e.target.closest('button'); if (b) aba(b.dataset.t) }
+
+function arquivos() {
+  const tem = !!$('#html').value.trim()
+  const linhas = [
+    tem ? `<div class="${novos.htmlNovo ? 'new' : ''}"><span>index.html</span><em>${kb(new Blob([$('#html').value]).size)}</em></div>` : '',
+    ...existentes.map(f => `<div class="${removidos.has(f.path) ? 'del' : ''}"><span>${esc(f.path)}</span><em>${kb(f.size)}</em><button type="button" title="${removidos.has(f.path) ? 'Manter' : 'Remover'}" onclick="alterna('${esc(f.path)}')"><svg class="i"><use href="#i-${removidos.has(f.path) ? 'plus' : 'trash'}"/></svg></button></div>`),
+    ...novos.map((f, n) => `<div class="new"><span>+ ${esc(f.path)}</span><em>${kb(f.size)}</em><button type="button" title="Tirar" onclick="tira(${n})"><svg class="i"><use href="#i-x"/></svg></button></div>`)
+  ].join('')
+  $('#files').innerHTML = linhas || '<div><span style="color:var(--faint)">Nenhum arquivo ainda — envie a pasta do slide ou cole o código.</span></div>'
+  const total = novos.reduce((a, f) => a + f.size, 0)
+  $('#filesInfo').textContent = novos.length ? `${novos.length} arquivo(s) novo(s) · ${kb(total)} para enviar` : ''
+}
+window.alterna = p => { removidos.has(p) ? removidos.delete(p) : removidos.add(p); arquivos() }
+window.tira = n => { novos.splice(n, 1); arquivos() }
+
+const lerB64 = f => new Promise((ok, no) => { const r = new FileReader(); r.onload = () => ok(r.result); r.onerror = no; r.readAsDataURL(f) })
+async function recebe(lista) {
+  // lista: [{ file, path }]
+  if (!lista.length) return
+  const partes = lista.map(x => x.path.split('/'))
+  const raizComum = partes.every(p => p.length > 1 && p[0] === partes[0][0]) ? partes[0][0] + '/' : ''
+  const itens = lista.map(x => ({ ...x, path: x.path.slice(raizComum.length) })).filter(x => !/(^|\/)(\.|Thumbs\.db|desktop\.ini)/i.test(x.path))
+  const htmls = itens.filter(x => /\.html?$/i.test(x.path))
+  const principal = htmls.find(x => /^index\.html?$/i.test(x.path)) || htmls.find(x => !x.path.includes('/')) || htmls[0]
+  if (principal) {
+    $('#html').value = await principal.file.text(); novos.htmlNovo = true
+    if (!$('#title').value) { const t = /<title>([^<]*)<\/title>/i.exec($('#html').value); if (t) { $('#title').value = t[1].trim(); $('#title').oninput() } }
+  }
+  for (const x of itens) if (x !== principal) {
+    novos = novos.filter(n => n.path !== x.path)
+    novos.push({ path: x.path, size: x.file.size, file: x.file })
+  }
+  arquivos(); toast(`${itens.length} arquivo(s) adicionados`)
+}
+$('#bPasta').onclick = () => $('#inPasta').click()
+$('#bArqs').onclick = () => $('#inArqs').click()
+$('#drop').onclick = e => { if (!e.target.closest('button')) $('#inPasta').click() }
+$('#inPasta').onchange = e => { recebe([...e.target.files].map(f => ({ file: f, path: f.webkitRelativePath || f.name }))); e.target.value = '' }
+$('#inArqs').onchange = e => { recebe([...e.target.files].map(f => ({ file: f, path: f.name }))); e.target.value = '' }
+const dz = $('#drop')
+dz.ondragover = e => { e.preventDefault(); dz.classList.add('over') }
+dz.ondragleave = () => dz.classList.remove('over')
+dz.ondrop = async e => {
+  e.preventDefault(); dz.classList.remove('over')
+  const out = []
+  async function anda(entry, pre = '') {
+    if (entry.isFile) await new Promise(ok => entry.file(f => { out.push({ file: f, path: pre + f.name }); ok() }, ok))
+    else if (entry.isDirectory) {
+      const r = entry.createReader(); let lote
+      do { lote = await new Promise(ok => r.readEntries(ok, () => ok([]))); for (const en of lote) await anda(en, pre + entry.name + '/') } while (lote.length)
+    }
+  }
+  const entries = [...e.dataTransfer.items].map(i => i.webkitGetAsEntry?.()).filter(Boolean)
+  if (entries.length) for (const en of entries) await anda(en)
+  else [...e.dataTransfer.files].forEach(f => out.push({ file: f, path: f.name }))
+  recebe(out)
+}
+$('#html').oninput = () => arquivos()
+$('#html').onkeydown = e => { if (e.key === 'Tab') { e.preventDefault(); const t = e.target, s = t.selectionStart; t.setRangeText('  ', s, t.selectionEnd, 'end') } }
+
+$('#bSalvar').onclick = async () => {
+  const b = $('#bSalvar'); $('#sErr').textContent = ''
+  if (!$('#title').value.trim()) return ($('#sErr').textContent = 'Informe um título.')
+  if (!$('#html').value.trim()) return ($('#sErr').textContent = 'Envie a pasta do slide ou cole o HTML.')
+  b.disabled = true; b.innerHTML = '<span class="spin"></span>Salvando…'
+  try {
+    const files = await Promise.all(novos.map(async f => ({ path: f.path, data: await lerB64(f.file) })))
+    const body = { title: $('#title').value, slug: $('#slug').value || $('#title').value, description: $('#desc').value, published: $('#pub').checked, html: $('#html').value, files, removeFiles: [...removidos] }
+    const s = await call(editing ? '/api/slides/' + editing : '/api/slides', { method: editing ? 'PUT' : 'POST', body })
+    fecha(); toast(editing ? 'Slide atualizado!' : 'Slide publicado! Link copiado.')
+    if (!editing) navigator.clipboard?.writeText(`${origin}/slide/${s.slug}`).catch(() => {})
+    carrega()
+  } catch (e) { $('#sErr').textContent = e.message }
+  finally { b.disabled = false; b.textContent = 'Salvar' }
+}
+
+inicia().then(() => { if ($('#app').hidden) mostraLogin() })
+</script>
+</body>
+</html>

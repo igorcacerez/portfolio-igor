@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Modelo de apresentação</title>
+<link rel="stylesheet" href="/deck/deck.css">
+<style>
+  /* Só o layout específico deste deck. Tudo que é mecanismo vem de /deck/deck.css e /deck/deck.js */
+  #capa .anel { left: 900px; top: -90px; width: 860px; height: 860px; color: var(--tinta); opacity: .9; }
+  #capa .olho { left: 96px; top: 330px; font: 700 20px/1 var(--mono); letter-spacing: .3em; color: var(--acento); }
+  #capa h1 { left: 88px; top: 380px; }
+  #capa h1 span { display: block; }
+  #capa .term { left: 96px; top: 760px; font: 500 22px/1 var(--mono); color: var(--tinta2); }
+  #topicos .lista { left: 96px; top: 300px; width: 760px; }
+  #topicos .foto { left: 920px; top: 300px; width: 584px; height: 500px; }
+  #codigo .code { left: 96px; top: 300px; width: 860px; }
+  #codigo .dica { left: 1010px; top: 300px; width: 494px; }
+  #numeros .grade3 .card b { font: 400 120px/1 var(--tit); color: var(--acento); }
+  #fim h1 { left: 96px; top: 300px; }
+</style>
+</head>
+<body data-titulo="Desenvolvimento de Sistemas" data-tema="papel">
+<div id="stage">
+
+  <section class="slide" id="capa" data-nome="Capa" data-sem-hud>
+    <svg class="anel" viewBox="0 0 860 860" fill="none" stroke="currentColor" stroke-width="1.5">
+      <g class="gira desenha" style="transform-origin:430px 430px"><circle cx="430" cy="430" r="400" stroke-dasharray="4 14"/></g>
+      <g class="desenha" style="--d:200"><circle cx="430" cy="430" r="300"/><path d="M130 430h600M430 130v600"/></g>
+    </svg>
+    <div class="olho en" style="--d:100">// AULA 01</div>
+    <h1 class="mega"><span class="en" style="--d:200" data-scr>LÓGICA DE</span><span class="en destaque" style="--d:350">PROGRAMAÇÃO</span></h1>
+    <div class="term en term-cursor" style="--d:700">&gt; prof. Igor Cacerez</div>
+  </section>
+
+  <section class="slide" id="topicos" data-nome="O que vamos ver">
+    <header class="cab"><span class="cod">// 02 · roteiro</span><h2 class="tit enx">O que vamos ver</h2></header>
+    <ul class="lista">
+      <li data-s="1">Variáveis e tipos de dados</li>
+      <li data-s="2">Condições: se / senão</li>
+      <li data-s="3">Laços de repetição</li>
+      <li data-s="4">Mão na massa no terminal</li>
+    </ul>
+    <figure class="foto zoom" style="--d:300; margin:0"><img src="img/exemplo.jpg" alt="" onerror="this.parentElement.style.background='linear-gradient(135deg,var(--acento),var(--tinta))'"><span class="tag">imagem gerada</span></figure>
+  </section>
+
+  <section class="slide" id="codigo" data-nome="Código">
+    <header class="cab"><span class="cod">// 03 · exemplo</span><h2 class="tit enx">Seu primeiro if</h2></header>
+<pre class="code en" style="--d:200"><span class="k">const</span> idade = <span class="n">17</span>
+
+<span class="k">if</span> (idade &gt;= <span class="n">18</span>) {
+  console.<span class="f">log</span>(<span class="s">"Pode dirigir"</span>)
+} <span class="k">else</span> {
+  console.<span class="f">log</span>(<span class="s">"Ainda não"</span>)
+}</pre>
+    <div class="dica card canto" data-s="1"><div class="icw" data-ic="lampada"></div><h3>Dica</h3><p>O <b>if</b> só executa o bloco quando a condição é verdadeira.</p></div>
+  </section>
+
+  <section class="slide" id="numeros" data-nome="Em números">
+    <header class="cab"><span class="cod">// 04 · mercado</span><h2 class="tit enx">Em números</h2></header>
+    <div class="grade3">
+      <div class="card canto pop" style="--d:100"><b data-conta="149887" data-mil>0</b><p>vagas abertas em TI</p></div>
+      <div class="card canto pop" style="--d:250"><b data-conta="92">0<small>%</small></b><p>das empresas usam software próprio</p></div>
+      <div class="card canto pop" style="--d:400"><div class="icw" data-ic="foguete"></div><h3>Bora?</h3><p>Seu futuro começa aqui.</p></div>
+    </div>
+  </section>
+
+  <section class="slide" id="fim" data-nome="Fim" data-sem-hud>
+    <h1 class="mega"><span class="en">Obrigado!</span><br><span class="en destaque" style="--d:200" data-digita="dúvidas?" data-atraso="600"></span></h1>
+  </section>
+
+</div>
+<script src="/deck/deck.js"></script>
+<script>
+  // Ganchos opcionais por slide:
+  Deck.on("fim", { entra(slide) { /* algo especial ao entrar no slide final */ } });
+</script>
+</body>
+</html>

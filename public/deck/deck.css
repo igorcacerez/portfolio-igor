@@ -183,3 +183,10 @@ button { font: inherit; color: inherit; }
 
 /* dentro de iframe (miniatura no painel) */
 .embutido .ctrl, .embutido .aviso { display: none !important; }
+
+/* transição entre slides (direta, sem tela de número) */
+.slide.vai { animation: slideVai .45s var(--ease) both; }
+.slide.vem { animation: slideVem .45s var(--ease) both; }
+@keyframes slideVai { from { opacity: 0; translate: 60px 0; } }
+@keyframes slideVem { from { opacity: 0; translate: -60px 0; } }
+.corte { display: none !important; }

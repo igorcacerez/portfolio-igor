@@ -126,24 +126,20 @@
     entra(slides[i]); aplica();
     try { history.replaceState(null, "", "#" + slides[i].id); } catch (e) {}
   }
-  const corte = $("#corte");
+  /* transição direta: o slide novo desliza/esmaece para dentro (sem tela intermediária) */
   function ir(n, p = 0) {
     if (ocupado || n < 0 || n >= total) return; if (geral) return saiGeral(n); if (n === i) return;
     ocupado = true;
-    corte.classList.toggle("vol", n < i);
-    $("#corteN").textContent = pad(n + 1);
-    $("#corteC").textContent = `// ${pad(n + 1)} / ${pad(total)}`;
-    $("#corteT").textContent = slides[n].dataset.nome || "";
-    corte.classList.remove("out"); void corte.offsetWidth; corte.classList.add("in");
-    setTimeout(() => {
-      troca(n, p);
-      corte.classList.remove("in"); void corte.offsetWidth; corte.classList.add("out");
-      setTimeout(() => { corte.classList.remove("out"); ocupado = false; }, 580);
-    }, 560);
+    const volta = n < i;
+    troca(n, p);
+    const s = slides[i];
+    s.classList.remove("vai", "vem"); void s.offsetWidth; s.classList.add(volta ? "vem" : "vai");
+    setTimeout(() => { s.classList.remove("vai", "vem"); ocupado = false; }, 450);
   }
   const proximo = () => { if (geral || ocupado) return; if (passo < maxPasso(slides[i])) { passo++; aplica(); } else ir(i + 1); };
   const anterior = () => { if (geral || ocupado) return; if (passo > 0) { passo--; aplica(); } else if (i > 0) ir(i - 1, maxPasso(slides[i - 1])); };
-  Object.assign(Deck, { ir, proximo, anterior, slides, get atual() { return i; } });
+  Object.assign(Deck, { ir, proximo, anterior, slides });
+  Object.defineProperty(Deck, "atual", { get: () => i });
 
   const cols = Math.ceil(Math.sqrt(total * 16 / 9)) || 1, esc = Math.min(.96 / cols, .96 / Math.ceil(total / cols));
   const pos = n => { const gx = W / cols, gy = gx * H / W;
